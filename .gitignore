@@ -14,4 +14,7 @@
 # Maven
 logs/
 target/
+<<<<<<< HEAD
 logFile.2021-12-09.log
+=======
+>>>>>>> bde9a0a (Initial commit)

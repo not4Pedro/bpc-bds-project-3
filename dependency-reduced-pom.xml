@@ -43,6 +43,7 @@
               <transformers>
                 <transformer>
                   <mainClass>org.but.feec.bds.project.Main</mainClass>
+
                 </transformer>
               </transformers>
             </configuration>
