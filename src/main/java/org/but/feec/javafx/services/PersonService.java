@@ -1,10 +1,7 @@
 package org.but.feec.javafx.services;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import org.but.feec.javafx.api.PersonBasicView;
-import org.but.feec.javafx.api.PersonCreateView;
-import org.but.feec.javafx.api.PersonDetailView;
-import org.but.feec.javafx.api.PersonEditView;
+import org.but.feec.javafx.api.*;
 import org.but.feec.javafx.data.PersonRepository;
 
 import java.util.List;
@@ -39,6 +36,10 @@ public class PersonService {
 
     public void editPerson(PersonEditView personEditView) {
         personRepository.editPerson(personEditView);
+    }
+
+    public void deletePerson(PersonDeleteView personDeleteView){
+        personRepository.deletePerson(personDeleteView);
     }
 
     /**

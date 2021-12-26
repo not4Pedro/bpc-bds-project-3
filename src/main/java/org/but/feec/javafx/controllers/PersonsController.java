@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.but.feec.javafx.App;
 import org.but.feec.javafx.api.PersonBasicView;
+import org.but.feec.javafx.api.PersonDeleteView;
 import org.but.feec.javafx.api.PersonDetailView;
 import org.but.feec.javafx.data.PersonRepository;
 import org.but.feec.javafx.exceptions.ExceptionHandler;
@@ -61,7 +62,7 @@ public class PersonsController {
 //        GlyphsDude.setIcon(exitMenuItem, FontAwesomeIcon.CLOSE, "1em");
 
         personsId.setCellValueFactory(new PropertyValueFactory<PersonBasicView, Long>("id"));
-        personsCity.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("city"));
+//        personsCity.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("city"));
         personsEmail.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("email"));
         personsFamilyName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("familyName"));
         personsGivenName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("givenName"));
@@ -81,6 +82,7 @@ public class PersonsController {
     private void initializeTableViewSelection() {
         MenuItem edit = new MenuItem("Edit person");
         MenuItem detailedView = new MenuItem("Detailed person view");
+        MenuItem deletePerson = new MenuItem("Delete person");
         edit.setOnAction((ActionEvent event) -> {
             PersonBasicView personView = systemPersonsTableView.getSelectionModel().getSelectedItem();
             try {
@@ -131,10 +133,19 @@ public class PersonsController {
             }
         });
 
+        deletePerson.setOnAction((ActionEvent event) -> {
+            PersonBasicView personView = systemPersonsTableView.getSelectionModel().getSelectedItem();
+            PersonDeleteView personDeleteView = new PersonDeleteView();
+            personDeleteView.setPersonId(personView.getId());
+            personService.deletePerson(personDeleteView);
+
+        });
+
 
         ContextMenu menu = new ContextMenu();
         menu.getItems().add(edit);
         menu.getItems().addAll(detailedView);
+        menu.getItems().add(deletePerson);
         systemPersonsTableView.setContextMenu(menu);
     }
 

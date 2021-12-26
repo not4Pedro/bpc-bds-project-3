@@ -59,10 +59,8 @@ public class PersonRepository {
     public List<PersonBasicView> getPersonsBasicView() {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT c.customer_id, email, first_name, last_name, city" +
-                             " FROM public.customer c" +
-                             " JOIN cust_address ca ON c.customer_id = ca.customer_id" +
-                             " JOIN address a ON a.address_id=ca.address_id");
+                     "SELECT c.customer_id, email, first_name, last_name" +
+                             " FROM public.customer c");
              ResultSet resultSet = preparedStatement.executeQuery();) {
             List<PersonBasicView> personBasicViews = new ArrayList<>();
             while (resultSet.next()) {
@@ -141,7 +139,56 @@ public class PersonRepository {
                 connection.setAutoCommit(true);
             }
         } catch (SQLException e) {
-            throw new DataAccessException("Creating person failed operation on the database failed.");
+            throw new DataAccessException("Creating person failed operation on the database .");
+        }
+    }
+
+//    TODO: create view where i can delete, warning FOREIGN KEYS
+    public void deletePerson(PersonDeleteView personDeleteView) {
+        String deletePersonSQL = "DELETE FROM public.customer WHERE customer_id = ?";
+        String checkIfExists = "SELECT last_name FROM public.customer WHERE customer_id = ?";
+        Long id = personDeleteView.getPersonId();
+        try (Connection connection = DataSourceConfig.getConnection();
+             // would be beneficial if I will return the created entity back
+             PreparedStatement preparedStatement = connection.prepareStatement(deletePersonSQL, Statement.RETURN_GENERATED_KEYS)) {
+            // set prepared statement variables
+            System.out.println("delete id "+id);
+
+            preparedStatement.setLong(1, id);
+
+            try {
+                // TODO set connection autocommit to false
+                /* HERE */
+                connection.setAutoCommit(false);
+                try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
+                    ps.setLong(1, id);
+                    ps.execute();
+                } catch (SQLException e) {
+                    throw new DataAccessException("This person for delete do not exists.");
+                }
+
+
+                int affectedRows = preparedStatement.executeUpdate();
+                System.out.println(affectedRows);
+
+
+                if (affectedRows == 0) {
+                    throw new DataAccessException("Deleting person failed, no rows affected.");
+                }
+                // TODO commit the transaction (both queries were performed)
+                /* HERE */
+                connection.commit();
+            } catch (SQLException e) {
+                // TODO rollback the transaction if something wrong occurs
+                /* HERE */
+                connection.rollback();
+            } finally {
+                // TODO set connection autocommit back to true
+                /* HERE */
+                connection.setAutoCommit(true);
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Deleting person failed operation on the database .");
         }
     }
 
@@ -153,7 +200,7 @@ public class PersonRepository {
      */
     private PersonAuthView mapToPersonAuth(ResultSet rs) throws SQLException {
         PersonAuthView person = new PersonAuthView();
-        person.setEmail(rs.getString("last_name"));
+        person.setLastName(rs.getString("last_name"));
         person.setPassword(rs.getString("password"));
         return person;
     }
@@ -164,7 +211,7 @@ public class PersonRepository {
         personBasicView.setEmail(rs.getString("email"));
         personBasicView.setGivenName(rs.getString("first_name"));
         personBasicView.setFamilyName(rs.getString("last_name"));
-        personBasicView.setCity(rs.getString("city"));
+//        personBasicView.setCity(rs.getString("city"));
         return personBasicView;
     }
 
@@ -179,5 +226,6 @@ public class PersonRepository {
         personDetailView.setStreet(rs.getString("street"));
         return personDetailView;
     }
+
 
 }
