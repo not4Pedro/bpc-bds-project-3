@@ -57,8 +57,6 @@ public class PersonCreateView {
 
 
 
-
-
     public char[] getPwd() {
         return pwd;
     }

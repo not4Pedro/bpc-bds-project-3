@@ -75,13 +75,14 @@ public class PersonRepository {
     }
 
     public void createPerson(PersonCreateView personCreateView) {
-        String insertPersonSQL = "INSERT INTO bds.person (first_name, email, lastName, pwd, gender, joined) VALUES (?,?,?,?,?,?)";
+        String insertPersonSQL = "INSERT INTO public.customer (first_name, email, last_name, password, sex, registered) VALUES (?,?,?,?,?,?)";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
             // set prepared statement variables
-            preparedStatement.setString(1, personCreateView.getEmail());
-            preparedStatement.setString(2, personCreateView.getFirstName());
+
+            preparedStatement.setString(1, personCreateView.getFirstName());
+            preparedStatement.setString(2, personCreateView.getEmail());
             preparedStatement.setString(3, personCreateView.getLastName());
             preparedStatement.setString(4, String.valueOf(personCreateView.getPwd()));
             preparedStatement.setString(5, String.valueOf(personCreateView.getGender()));
@@ -98,21 +99,23 @@ public class PersonRepository {
     }
 
     public void editPerson(PersonEditView personEditView) {
-        String insertPersonSQL = "UPDATE bds.person p SET email = ?, first_name = ?, nickname = ?, surname = ? WHERE p.id_person = ?";
-        String checkIfExists = "SELECT email FROM bds.person p WHERE p.id_person = ?";
+        String insertPersonSQL = "UPDATE public.customer SET first_name = ?, last_name = ?, email = ? WHERE customer_id = ?";
+        String checkIfExists = "SELECT last_name FROM public.customer WHERE customer_id = ?";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
             // set prepared statement variables
-            preparedStatement.setString(1, personEditView.getEmail());
-            preparedStatement.setString(2, personEditView.getFirstName());
-            preparedStatement.setString(3, personEditView.getNickname());
-            preparedStatement.setString(4, personEditView.getSurname());
-            preparedStatement.setLong(5, personEditView.getId());
+
+            preparedStatement.setString(1, personEditView.getFirstName());
+//            preparedStatement.setString(3, personEditView.getNickname());
+            preparedStatement.setString(2, personEditView.getSurname());
+            preparedStatement.setString(3, personEditView.getEmail());
+            preparedStatement.setLong(4, personEditView.getId());
 
             try {
                 // TODO set connection autocommit to false
                 /* HERE */
+                connection.setAutoCommit(false);
                 try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setLong(1, personEditView.getId());
                     ps.execute();
@@ -127,12 +130,15 @@ public class PersonRepository {
                 }
                 // TODO commit the transaction (both queries were performed)
                 /* HERE */
+                connection.commit();
             } catch (SQLException e) {
                 // TODO rollback the transaction if something wrong occurs
                 /* HERE */
+                connection.rollback();
             } finally {
                 // TODO set connection autocommit back to true
                 /* HERE */
+                connection.setAutoCommit(true);
             }
         } catch (SQLException e) {
             throw new DataAccessException("Creating person failed operation on the database failed.");

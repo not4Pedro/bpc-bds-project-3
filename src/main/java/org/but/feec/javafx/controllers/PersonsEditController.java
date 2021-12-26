@@ -37,8 +37,8 @@ public class PersonsEditController {
     private TextField firstNameTextField;
     @FXML
     private TextField lastNameTextField;
-    @FXML
-    private TextField nicknameTextField;
+//    @FXML
+//    private TextField nicknameTextField;
 
     private PersonService personService;
     private PersonRepository personRepository;
@@ -91,14 +91,14 @@ public class PersonsEditController {
         String email = emailTextField.getText();
         String firstName = firstNameTextField.getText();
         String lastName = lastNameTextField.getText();
-        String nickname = nicknameTextField.getText();
+//        String nickname = nicknameTextField.getText();
 
         PersonEditView personEditView = new PersonEditView();
         personEditView.setId(id);
         personEditView.setEmail(email);
         personEditView.setFirstName(firstName);
         personEditView.setSurname(lastName);
-        personEditView.setNickname(nickname);
+//        personEditView.setNickname(nickname);
 
         personService.editPerson(personEditView);
 

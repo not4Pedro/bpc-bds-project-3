@@ -18,6 +18,7 @@ import org.controlsfx.validation.Validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Timestamp;
 import java.util.Optional;
 
 public class PersonCreateController {
@@ -42,7 +43,8 @@ public class PersonCreateController {
     private TextField newPersonPwd;
 
     @FXML
-    private TextField newGender;
+    private TextField newPersonGender;
+
 
     private PersonService personService;
     private PersonRepository personRepository;
@@ -59,6 +61,7 @@ public class PersonCreateController {
         validation.registerValidator(newPersonLastName, Validator.createEmptyValidator("The last name must not be empty."));
 //        validation.registerValidator(newPersonNickname, Validator.createEmptyValidator("The nickname must not be empty."));
         validation.registerValidator(newPersonPwd, Validator.createEmptyValidator("The password must not be empty."));
+        validation.registerValidator(newPersonGender, Validator.createEmptyValidator("The gender must not be empty."));
 
         newPersonCreatePerson.disableProperty().bind(validation.invalidProperty());
 
@@ -72,7 +75,8 @@ public class PersonCreateController {
         String firstName = newPersonFirstName.getText();
         String lastName = newPersonLastName.getText();
         String password = newPersonPwd.getText();
-        String gender = newGender.getText();
+        String gender = newPersonGender.getText();
+        Timestamp joined = new Timestamp(System.currentTimeMillis());
 
         PersonCreateView personCreateView = new PersonCreateView();
         personCreateView.setPwd(password.toCharArray());
@@ -80,6 +84,7 @@ public class PersonCreateController {
         personCreateView.setFirstName(firstName);
         personCreateView.setLastName(lastName);
         personCreateView.setGender(gender.toCharArray());
+        personCreateView.setJoined(joined);
 
 
         personService.createPerson(personCreateView);
