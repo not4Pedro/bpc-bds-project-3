@@ -3,6 +3,7 @@ package org.but.feec.javafx.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.but.feec.javafx.api.PersonBasicView;
 import org.but.feec.javafx.api.PersonDetailView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,16 +25,25 @@ public class PersonsDetailViewController {
     private TextField lastNameTextField;
 
     @FXML
-    private TextField nicknameTextField;
+    private TextField genderTextField;
 
     @FXML
     private TextField cityTextField;
+
+    @FXML
+    private TextField zipcodeTextField;
 
     @FXML
     private TextField houseNumberTextField;
 
     @FXML
     private TextField streetTextField;
+
+    @FXML
+    private TextField countryTextField;
+
+    @FXML
+    private TextField addressTypeTextField;
 
     // used to reference the stage and to get passed data through it
     public Stage stage;
@@ -48,10 +58,13 @@ public class PersonsDetailViewController {
         emailTextField.setEditable(false);
         firstNameTextField.setEditable(false);
         lastNameTextField.setEditable(false);
-        nicknameTextField.setEditable(false);
+        genderTextField.setEditable(false);
         cityTextField.setEditable(false);
         houseNumberTextField.setEditable(false);
         streetTextField.setEditable(false);
+        zipcodeTextField.setEditable(false);
+        countryTextField.setEditable(false);
+        addressTypeTextField.setEditable(false);
 
         loadPersonsData();
 
@@ -66,10 +79,13 @@ public class PersonsDetailViewController {
             emailTextField.setText(personBasicView.getEmail());
             firstNameTextField.setText(personBasicView.getGivenName());
             lastNameTextField.setText(personBasicView.getFamilyName());
-            nicknameTextField.setText(personBasicView.getNickname());
+            genderTextField.setText(personBasicView.getGender());
             cityTextField.setText(personBasicView.getCity());
+            zipcodeTextField.setText(personBasicView.getZipcode());
             houseNumberTextField.setText(personBasicView.gethouseNumber());
             streetTextField.setText(personBasicView.getStreet());
+            countryTextField.setText(personBasicView.getCountry());
+            addressTypeTextField.setText(personBasicView.getAddressType());
         }
     }
 

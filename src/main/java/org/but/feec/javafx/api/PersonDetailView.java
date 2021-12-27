@@ -10,10 +10,14 @@ public class PersonDetailView {
     private StringProperty email = new SimpleStringProperty();
     private StringProperty givenName = new SimpleStringProperty();
     private StringProperty familyName = new SimpleStringProperty();
-    private StringProperty nickname = new SimpleStringProperty();
-    private StringProperty city = new SimpleStringProperty();
+    private StringProperty gender = new SimpleStringProperty();
     private StringProperty street = new SimpleStringProperty();
     private StringProperty houseNumber = new SimpleStringProperty();
+    private StringProperty zipcode = new SimpleStringProperty();
+    private StringProperty city = new SimpleStringProperty();
+    private StringProperty country = new SimpleStringProperty();
+    private StringProperty addressType = new SimpleStringProperty();
+
 
     public Long getId() {
         return idProperty().get();
@@ -47,14 +51,6 @@ public class PersonDetailView {
         this.familyNameProperty().setValue(familyName);
     }
 
-    public String getNickname() {
-        return nicknameProperty().get();
-    }
-
-    public void setNickname(String nickname) {
-        this.nicknameProperty().set(nickname);
-    }
-
     public String getCity() {
         return cityProperty().get();
     }
@@ -79,6 +75,22 @@ public class PersonDetailView {
         this.streetProperty().setValue(street);
     }
 
+    public String getGender() { return genderProperty().get(); }
+
+    public void setGender(String gender){ this.genderProperty().setValue(gender); }
+
+    public String getZipcode() { return zipcodeProperty().get(); }
+
+    public void setZipcode(String zipcode) { this.zipcodeProperty().setValue(zipcode); }
+
+    public String getCountry() { return countryProperty().get(); }
+
+    public void setCountry(String country) { this.countryProperty().setValue(country); }
+
+    public String getAddressType() { return addressTypeProperty().get(); }
+
+    public void setAddressType(String addressType) { this.addressTypeProperty().setValue(addressType); }
+
     public LongProperty idProperty() {
         return id;
     }
@@ -95,9 +107,7 @@ public class PersonDetailView {
         return familyName;
     }
 
-    public StringProperty nicknameProperty() {
-        return nickname;
-    }
+    public StringProperty genderProperty() { return gender; }
 
     public StringProperty cityProperty() {
         return city;
@@ -110,6 +120,14 @@ public class PersonDetailView {
     public StringProperty streetProperty() {
         return street;
     }
+
+    public StringProperty zipcodeProperty() { return zipcode; }
+
+    public StringProperty countryProperty() { return country; }
+
+    public StringProperty addressTypeProperty() { return addressType; }
+
+
 
 
 }

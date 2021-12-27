@@ -34,10 +34,12 @@ public class PersonRepository {
     public PersonDetailView findPersonDetailedView(Long personId) {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT id_person, email, first_name, surname, city, house_number, street" +
-                             " FROM bds.person p" +
-                             " LEFT JOIN bds.address a ON p.id_address = a.id_address" +
-                             " WHERE p.id_person = ?")
+                     "SELECT c.customer_id, email, first_name, last_name, sex, city, zipcode," +
+                             " street_number, street_name, country, address_type" +
+                             " FROM public.customer c" +
+                             " LEFT JOIN public.cust_address ca ON c.customer_id = ca.customer_id" +
+                             " LEFT JOIN public.address a ON ca.address_id = a.address_id" +
+                             " WHERE c.customer_id = ?")
         ) {
             preparedStatement.setLong(1, personId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -46,7 +48,7 @@ public class PersonRepository {
                 }
             }
         } catch (SQLException e) {
-            throw new DataAccessException("Find person by ID with addresses failed.", e);
+            throw new DataAccessException(e); //"Find person by ID with addresses failed.",
         }
         return null;
     }
@@ -159,6 +161,10 @@ public class PersonRepository {
             try {
                 // TODO set connection autocommit to false
                 /* HERE */
+
+
+
+
                 connection.setAutoCommit(false);
                 try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setLong(1, id);
@@ -217,13 +223,18 @@ public class PersonRepository {
 
     private PersonDetailView mapToPersonDetailView(ResultSet rs) throws SQLException {
         PersonDetailView personDetailView = new PersonDetailView();
-        personDetailView.setId(rs.getLong("id_person"));
+        personDetailView.setId(rs.getLong("customer_id"));
         personDetailView.setEmail(rs.getString("email"));
         personDetailView.setGivenName(rs.getString("first_name"));
         personDetailView.setFamilyName(rs.getString("last_name"));
+        personDetailView.setGender(rs.getString("sex"));
+        personDetailView.sethouseNumber(rs.getString("street_number"));
+        personDetailView.setStreet(rs.getString("street_name"));
         personDetailView.setCity(rs.getString("city"));
-        personDetailView.sethouseNumber(rs.getString("house_number"));
-        personDetailView.setStreet(rs.getString("street"));
+        personDetailView.setZipcode(rs.getString("zipcode"));
+        personDetailView.setCountry(rs.getString("country"));
+        personDetailView.setAddressType(rs.getString("address_type"));
+
         return personDetailView;
     }
 

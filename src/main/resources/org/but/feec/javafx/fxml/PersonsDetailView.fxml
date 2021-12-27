@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <GridPane layoutX="22.0" layoutY="22.0" prefHeight="311.0" prefWidth="549.0">
             <columnConstraints>
@@ -21,6 +21,9 @@
                 <RowConstraints minHeight="40.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="66.0" minHeight="40.0" prefHeight="39.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="57.0" minHeight="40.0" prefHeight="57.0" />
+            <RowConstraints maxHeight="57.0" minHeight="40.0" prefHeight="57.0" />
+            <RowConstraints maxHeight="57.0" minHeight="40.0" prefHeight="57.0" />
+            <RowConstraints maxHeight="57.0" minHeight="40.0" prefHeight="57.0" />
             <RowConstraints maxHeight="57.0" minHeight="40.0" prefHeight="57.0" />
             <RowConstraints maxHeight="57.0" minHeight="40.0" prefHeight="57.0" />
             <RowConstraints maxHeight="57.0" minHeight="40.0" prefHeight="57.0" />
@@ -47,7 +50,7 @@
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="nickname" GridPane.rowIndex="4">
+                <Label text="gender" GridPane.rowIndex="4">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
@@ -56,8 +59,8 @@
                 <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="firstNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="lastNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <TextField fx:id="nicknameTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="city" GridPane.rowIndex="5">
+                <TextField fx:id="genderTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="house number" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -65,19 +68,37 @@
                   <Insets left="5.0" />
                </padding>
             </Label>
-            <Label text="house number" GridPane.rowIndex="6">
+            <Label text="street name" GridPane.rowIndex="6">
                <padding>
                   <Insets left="5.0" />
                </padding>
             </Label>
-            <Label text="street" GridPane.rowIndex="7">
+            <Label text="city" GridPane.rowIndex="7">
                <padding>
                   <Insets left="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="cityTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="houseNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="streetTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="houseNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="streetTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="cityTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label layoutX="10.0" layoutY="302.0" text="zipcode" GridPane.rowIndex="8">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label text="country" GridPane.rowIndex="9">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="zipcodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="countryTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="address type" GridPane.rowIndex="10">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="addressTypeTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             </children>
         </GridPane>
     </children>
