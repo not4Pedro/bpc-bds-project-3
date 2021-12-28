@@ -43,7 +43,7 @@
                   <Label fx:id="usernameLabel" text="User Name:" GridPane.columnIndex="1" />
                   <Label fx:id="passwordLabel" text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button id="signInButton" fx:id="signInButton" mnemonicParsing="false" onAction="#signInActionHandler" prefHeight="33.0" prefWidth="90.0" text="Sign in" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <TextField id="usernameTextField" fx:id="usernameTextfield" promptText="type your username" GridPane.columnIndex="2" />
+                  <TextField id="usernameTextField" fx:id="usernameTextField" promptText="type your username" GridPane.columnIndex="2" />
                   <PasswordField id="passwordTextField" fx:id="passwordTextField" promptText="type your password" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>

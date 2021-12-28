@@ -25,6 +25,23 @@ public class PersonService {
         return personRepository.getPersonsBasicView();
     }
 
+    public List<PersonBasicView> getPersonsBasicViewCustomer() {
+        return personRepository.getPersonsBasicViewCustomer();
+    }
+
+    public List<PersonBasicView> getPersonsBasicViewCustomer_1() {
+        return personRepository.getPersonsBasicViewCustomer_1();
+    }
+
+    public List<PersonBasicView> getPersonsInjectionView1(String lastName) {
+        return personRepository.getPersonsInjectionView1(lastName);
+    }
+
+    public List<PersonBasicView> getPersonsInjectionView2(String lastName) {
+        return personRepository.getPersonsInjectionView2(lastName);
+    }
+
+
     public void createPerson(PersonCreateView personCreateView) {
         // the following three lines can be written in one code line (only for more clear explanation it is written in three lines
         char[] originalPassword = personCreateView.getPwd();
@@ -42,6 +59,10 @@ public class PersonService {
         personRepository.deletePerson(personDeleteView);
     }
 
+    public List<PersonBasicView> getPersonsFilterView(String lastName) {
+        return personRepository.getPersonsFilterView(lastName);
+    }
+
     /**
      * <p>
      * Note: For implementation details see: https://github.com/patrickfav/bcrypt
@@ -53,5 +74,6 @@ public class PersonService {
     private char[] hashPassword(char[] password) {
         return BCrypt.withDefaults().hashToChar(12, password);
     }
+
 
 }

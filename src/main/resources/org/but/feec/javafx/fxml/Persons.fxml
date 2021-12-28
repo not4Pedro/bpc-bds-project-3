@@ -23,11 +23,11 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane dividerPositions="0.14715048975957254, 0.7782724844167408" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.24156118143459915, 0.820675105485232" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
-        <AnchorPane>
+        <AnchorPane prefHeight="576.0" prefWidth="306.0">
           <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="My friends" textAlignment="CENTER" wrapText="false">
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Search" textAlignment="CENTER" wrapText="false">
               <font>
                 <Font size="18.0" fx:id="x1" />
               </font>
@@ -35,14 +35,18 @@
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
+                  <Button fx:id="filterButton" layoutX="92.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleFilterButton" text="Filter" />
+                  <TextField fx:id="enterSurnameTextField" layoutX="39.0" layoutY="66.0" prefHeight="27.0" prefWidth="149.0" promptText="Enter surname" />
+            <Label alignment="CENTER" font="$x1" layoutX="43.0" layoutY="246.0" prefHeight="27.0" prefWidth="140.0" style="&#10;" text="SQL injections" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                  <Button fx:id="enterTheRoomButtom" layoutX="66.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleEnterTheRoomButton" text="Enter the room" />
           </children>
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
           <content>
-            <AnchorPane id="Content" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="517.0" prefWidth="592.0">
+            <AnchorPane id="Content" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="517.0" prefWidth="541.0">
               <children>
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="147.0" style="&#10;" text="Persons" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                        <TableView fx:id="systemPersonsTableView" layoutY="67.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <TableView fx:id="systemPersonsTableView" layoutY="67.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="400.0" prefWidth="592.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                           <columns>
                               <TableColumn fx:id="personsId" minWidth="75.0" prefWidth="80.00000303983688" text="id" />
                               <TableColumn fx:id="personsEmail" minWidth="75.0" prefWidth="160.00001525878906" text="email" />
@@ -56,11 +60,7 @@
             </AnchorPane>
           </content>
         </ScrollPane>
-        <AnchorPane>
-          <children>
-            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="My meetings" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-          </children>
-        </AnchorPane>
+        <AnchorPane prefHeight="576.0" prefWidth="112.0" />
       </items>
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">

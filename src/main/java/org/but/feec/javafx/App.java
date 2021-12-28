@@ -31,7 +31,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            loader = new FXMLLoader(getClass().getResource("App.fxml")); //App.fxml, fxml/Persons.fxml
+            loader = new FXMLLoader(getClass().getResource("fxml/Persons.fxml")); //App.fxml, fxml/Persons.fxml
             mainStage = loader.load();
 
             primaryStage.setTitle("BDS JavaFX Demo");

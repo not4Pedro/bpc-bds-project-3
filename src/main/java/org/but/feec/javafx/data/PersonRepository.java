@@ -74,8 +74,41 @@ public class PersonRepository {
         }
     }
 
+    public List<PersonBasicView> getPersonsBasicViewCustomer() {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT c.customer_id, email, first_name, last_name" +
+                             " FROM inject.customer c");
+             ResultSet resultSet = preparedStatement.executeQuery();) {
+            List<PersonBasicView> personBasicViews = new ArrayList<>();
+            while (resultSet.next()) {
+                personBasicViews.add(mapToPersonBasicView(resultSet));
+            }
+            return personBasicViews;
+        } catch (SQLException e) {
+            throw new DataAccessException("Persons inject view customer_1 could not be loaded.", e);
+        }
+    }
+
+    public List<PersonBasicView> getPersonsBasicViewCustomer_1() {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT c.customer_id, email, first_name, last_name" +
+                             " FROM inject.customer_1 c");
+             ResultSet resultSet = preparedStatement.executeQuery();) {
+            List<PersonBasicView> personBasicViews = new ArrayList<>();
+            while (resultSet.next()) {
+                personBasicViews.add(mapToPersonBasicView(resultSet));
+            }
+            return personBasicViews;
+        } catch (SQLException e) {
+            throw new DataAccessException("Persons inject view customer_1 could not be loaded.", e);
+        }
+    }
+
     public void createPerson(PersonCreateView personCreateView) {
-        String insertPersonSQL = "INSERT INTO public.customer (first_name, email, last_name, password, sex, registered) VALUES (?,?,?,?,?,?)";
+        String insertPersonSQL = "INSERT INTO public.customer (first_name, email, last_name, " +
+                "password, sex, registered) VALUES (?,?,?,?,?,?)";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -145,7 +178,7 @@ public class PersonRepository {
         }
     }
 
-//    TODO: create view where i can delete, warning FOREIGN KEYS
+
     public void deletePerson(PersonDeleteView personDeleteView) {
         String deletePersonSQL = "DELETE FROM public.customer WHERE customer_id = ?";
         String checkIfExists = "SELECT last_name FROM public.customer WHERE customer_id = ?";
@@ -161,10 +194,6 @@ public class PersonRepository {
             try {
                 // TODO set connection autocommit to false
                 /* HERE */
-
-
-
-
                 connection.setAutoCommit(false);
                 try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setLong(1, id);
@@ -195,6 +224,62 @@ public class PersonRepository {
             }
         } catch (SQLException e) {
             throw new DataAccessException("Deleting person failed operation on the database .");
+        }
+    }
+
+    public List<PersonBasicView> getPersonsFilterView(String lastName) {
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT customer_id, email, first_name, last_name" +
+                             " FROM public.customer WHERE last_name = ?");) {
+            preparedStatement.setString(1, lastName);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<PersonBasicView> personBasicViews = new ArrayList<>();
+            while (resultSet.next()) {
+                personBasicViews.add(mapToPersonBasicView(resultSet));
+            }
+            return personBasicViews;
+        } catch (SQLException e) {
+            throw new DataAccessException( e); //"Persons filtered view could not be loaded."
+        }
+    }
+
+//    todo dorobit filter view na obe tabulky, pokusist sa o injection, asi prerobit na concatenovanie
+    public List<PersonBasicView> getPersonsInjectionView1(String lastName) {
+        try (Connection connection = DataSourceConfig.getConnection();
+             Statement statement = connection.createStatement()) {
+            String query = "SELECT customer_id, email, first_name, last_name" +
+                    " FROM inject.customer WHERE last_name = '" + lastName + "'";
+
+            ResultSet resultSet = statement.executeQuery(query);
+
+            List<PersonBasicView> personBasicViews = new ArrayList<>();
+            while (resultSet.next()) {
+                personBasicViews.add(mapToPersonBasicView(resultSet));
+            }
+            return personBasicViews;
+        } catch (SQLException e) {
+            throw new DataAccessException("Table customer was not injected",e); //"Persons filtered view could not be loaded."
+        }
+    }
+
+    public List<PersonBasicView> getPersonsInjectionView2(String lastName) {
+        try (Connection connection = DataSourceConfig.getConnection();
+             Statement statement = connection.createStatement()) {
+            String query = "SELECT customer_id, email, first_name, last_name" +
+                    " FROM inject.customer_1 WHERE last_name = '" + lastName + "'";
+
+            ResultSet resultSet = statement.executeQuery(query);
+
+            List<PersonBasicView> personBasicViews = new ArrayList<>();
+            while (resultSet.next()) {
+                personBasicViews.add(mapToPersonBasicView(resultSet));
+            }
+            return personBasicViews;
+        } catch (SQLException e) {
+            throw new DataAccessException("Table customer_1 was not injected",e); //"Persons filtered view could not be loaded."
         }
     }
 
@@ -237,6 +322,7 @@ public class PersonRepository {
 
         return personDetailView;
     }
+
 
 
 }

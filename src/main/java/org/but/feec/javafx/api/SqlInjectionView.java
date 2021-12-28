@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class PersonBasicView {
+public class SqlInjectionView {
     private LongProperty id = new SimpleLongProperty();
     private StringProperty email = new SimpleStringProperty();
     private StringProperty givenName = new SimpleStringProperty();
@@ -60,5 +60,4 @@ public class PersonBasicView {
     public StringProperty familyNameProperty() {
         return familyName;
     }
-
 }

@@ -33,6 +33,12 @@ public class PersonsController {
     @FXML
     public Button refreshButton;
     @FXML
+    public Button filterButton;
+    @FXML
+    public Button enterTheRoomButton;
+    @FXML
+    public TextField enterSurnameTextField;
+    @FXML
     private TableColumn<PersonBasicView, Long> personsId;
     @FXML
     private TableColumn<PersonBasicView, String> personsCity;
@@ -43,9 +49,8 @@ public class PersonsController {
     @FXML
     private TableColumn<PersonBasicView, String> personsGivenName;
     @FXML
-    private TableColumn<PersonBasicView, String> personsNickname;
-    @FXML
     private TableView<PersonBasicView> systemPersonsTableView;
+
 //    @FXML
 //    public MenuItem exitMenuItem;
 
@@ -154,6 +159,11 @@ public class PersonsController {
         return FXCollections.observableArrayList(persons);
     }
 
+    private ObservableList<PersonBasicView> initializePersonsFilterData() {
+        List<PersonBasicView> personsFilter = personService.getPersonsFilterView(enterSurnameTextField.getText());
+        return FXCollections.observableArrayList(personsFilter);
+    }
+
     private void loadIcons() {
         Image vutLogoImage = new Image(App.class.getResourceAsStream("logos/vut-logo-eng.png"));
         ImageView vutLogo = new ImageView(vutLogoImage);
@@ -191,5 +201,26 @@ public class PersonsController {
         systemPersonsTableView.setItems(observablePersonsList);
         systemPersonsTableView.refresh();
         systemPersonsTableView.sort();
+    }
+    public void handleFilterButton(ActionEvent actionEvent){
+        ObservableList<PersonBasicView> observablePersonsFilterList = initializePersonsFilterData();
+        systemPersonsTableView.setItems(observablePersonsFilterList);
+        //systemPersonsTableView.refresh();
+        systemPersonsTableView.sort();
+    }
+
+    public void handleEnterTheRoomButton(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(App.class.getResource("fxml/SqlInjection.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1050, 650);
+            Stage stage = new Stage();
+            stage.setTitle("BDS JavaFX SQL injections");
+            stage.setScene(scene);
+
+            stage.show();
+        } catch (IOException ex) {
+            ExceptionHandler.handleException(ex);
+        }
     }
 }
