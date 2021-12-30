@@ -11,6 +11,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,13 +28,16 @@ public class App extends Application {
     private FXMLLoader loader;
     private VBox mainStage;
 
+
     public static void main(String[] args) {
         launch(args);
     }
 
+
     @Override
     public void start(Stage primaryStage) {
         try {
+
             loader = new FXMLLoader(getClass().getResource("fxml/Persons.fxml")); //App.fxml, fxml/Persons.fxml
             mainStage = loader.load();
 

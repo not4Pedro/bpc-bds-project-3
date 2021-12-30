@@ -50,7 +50,7 @@
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="gender" GridPane.rowIndex="4">
+                <Label text="sex" GridPane.rowIndex="4">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
@@ -59,7 +59,7 @@
                 <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="firstNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="lastNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <TextField fx:id="genderTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="sexTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="house number" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets />
@@ -78,7 +78,7 @@
                   <Insets left="5.0" />
                </padding>
             </Label>
-            <TextField fx:id="houseNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="streetNumberTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="streetTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField fx:id="cityTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <Label layoutX="10.0" layoutY="302.0" text="zipcode" GridPane.rowIndex="8">

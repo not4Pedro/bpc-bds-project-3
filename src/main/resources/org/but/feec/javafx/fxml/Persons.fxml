@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<VBox minHeight="625.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.javafx.controllers.PersonsController">
+<VBox minHeight="625.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.javafx.controllers.PersonsController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -36,7 +48,7 @@
               </textFill>
             </Label>
                   <Button fx:id="filterButton" layoutX="92.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleFilterButton" text="Filter" />
-                  <TextField fx:id="enterSurnameTextField" layoutX="39.0" layoutY="66.0" prefHeight="27.0" prefWidth="149.0" promptText="Enter surname" />
+                  <TextField fx:id="enterSurnameTextField" layoutX="39.0" layoutY="66.0" prefHeight="27.0" prefWidth="149.0" promptText="Enter lastName" />
             <Label alignment="CENTER" font="$x1" layoutX="43.0" layoutY="246.0" prefHeight="27.0" prefWidth="140.0" style="&#10;" text="SQL injections" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                   <Button fx:id="enterTheRoomButtom" layoutX="66.0" layoutY="288.0" mnemonicParsing="false" onAction="#handleEnterTheRoomButton" text="Enter the room" />
           </children>
@@ -48,10 +60,10 @@
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="147.0" style="&#10;" text="Persons" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                         <TableView fx:id="systemPersonsTableView" layoutY="67.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="400.0" prefWidth="592.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                           <columns>
-                              <TableColumn fx:id="personsId" minWidth="75.0" prefWidth="80.00000303983688" text="id" />
-                              <TableColumn fx:id="personsEmail" minWidth="75.0" prefWidth="160.00001525878906" text="email" />
-                              <TableColumn fx:id="personsGivenName" minWidth="75.0" prefWidth="120.0" text="given name" />
-                              <TableColumn fx:id="personsFamilyName" minWidth="75.0" prefWidth="120.0" text="family name" />
+                              <TableColumn fx:id="personsId" minWidth="60.0" prefWidth="60.0" text="id" />
+                              <TableColumn fx:id="personsEmail" minWidth="75.0" prefWidth="209.0" text="email" />
+                              <TableColumn fx:id="personsFirstName" minWidth="75.0" prefWidth="109.0" text="first name" />
+                              <TableColumn fx:id="personsLastName" minWidth="75.0" prefWidth="162.0" text="last name" />
                           </columns>
                         </TableView>
                         <Button fx:id="addPersonButton" layoutX="24.0" layoutY="491.0" mnemonicParsing="false" onAction="#handleAddPersonButton" text="Add person" />

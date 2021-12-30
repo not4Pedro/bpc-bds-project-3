@@ -2,8 +2,6 @@ package org.but.feec.javafx.api;
 
 import java.util.Arrays;
 import java.sql.Timestamp;
-import java.util.Date;
-
 
 
 public class PersonCreateView {
@@ -11,24 +9,24 @@ public class PersonCreateView {
     private String firstName;
     private String lastName;
     private String email;
-    private char[] pwd;
-    private char [] gender;
-    private Timestamp joined;
+    private char[] password;
+    private char [] sex;
+    private Timestamp registered;
 
-    public char[] getGender() {
-        return gender;
+    public char[] getSex() {
+        return sex;
     }
 
-    public void setGender(char[] gender) {
-        this.gender = gender;
+    public void setSex(char[] sex) {
+        this.sex = sex;
     }
 
-    public Timestamp getJoined() {
-        return joined;
+    public Timestamp getRegistered() {
+        return registered;
     }
 
-    public void setJoined(Timestamp joined) {
-        this.joined = joined;
+    public void setRegistered(Timestamp registered) {
+        this.registered = registered;
     }
 
     public String getEmail() {
@@ -57,12 +55,12 @@ public class PersonCreateView {
 
 
 
-    public char[] getPwd() {
-        return pwd;
+    public char[] getPassword() {
+        return password;
     }
 
-    public void setPwd(char[] pwd) {
-        this.pwd = pwd;
+    public void setPassword(char[] password) {
+        this.password = password;
     }
 
     @Override
@@ -71,9 +69,9 @@ public class PersonCreateView {
                 "email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", gender='" + gender + '\'' +
-                ", joined='" + joined + '\''+
-                ", pwd=" + Arrays.toString(pwd) +
+                ", sex='" + sex + '\'' +
+                ", registered='" + registered + '\''+
+                ", password=" + Arrays.toString(password) +
                 '}';
     }
 }

@@ -37,8 +37,7 @@ public class PersonsEditController {
     private TextField firstNameTextField;
     @FXML
     private TextField lastNameTextField;
-//    @FXML
-//    private TextField nicknameTextField;
+
 
     private PersonService personService;
     private PersonRepository personRepository;
@@ -79,8 +78,8 @@ public class PersonsEditController {
             PersonBasicView personBasicView = (PersonBasicView) stage.getUserData();
             idTextField.setText(String.valueOf(personBasicView.getId()));
             emailTextField.setText(personBasicView.getEmail());
-            firstNameTextField.setText(personBasicView.getGivenName());
-            lastNameTextField.setText(personBasicView.getFamilyName());
+            firstNameTextField.setText(personBasicView.getFirstName());
+            lastNameTextField.setText(personBasicView.getLastName());
         }
     }
 
@@ -97,7 +96,7 @@ public class PersonsEditController {
         personEditView.setId(id);
         personEditView.setEmail(email);
         personEditView.setFirstName(firstName);
-        personEditView.setSurname(lastName);
+        personEditView.setLastName(lastName);
 //        personEditView.setNickname(nickname);
 
         personService.editPerson(personEditView);

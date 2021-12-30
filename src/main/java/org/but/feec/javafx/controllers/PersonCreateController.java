@@ -40,10 +40,10 @@ public class PersonCreateController {
 //    private TextField newPersonNickname;
 
     @FXML
-    private TextField newPersonPwd;
+    private TextField newPersonPassword;
 
     @FXML
-    private TextField newPersonGender;
+    private TextField newPersonSex;
 
 
     private PersonService personService;
@@ -59,9 +59,8 @@ public class PersonCreateController {
         validation.registerValidator(newPersonEmail, Validator.createEmptyValidator("The email must not be empty."));
         validation.registerValidator(newPersonFirstName, Validator.createEmptyValidator("The first name must not be empty."));
         validation.registerValidator(newPersonLastName, Validator.createEmptyValidator("The last name must not be empty."));
-//        validation.registerValidator(newPersonNickname, Validator.createEmptyValidator("The nickname must not be empty."));
-        validation.registerValidator(newPersonPwd, Validator.createEmptyValidator("The password must not be empty."));
-        validation.registerValidator(newPersonGender, Validator.createEmptyValidator("The gender must not be empty."));
+        validation.registerValidator(newPersonPassword, Validator.createEmptyValidator("The password must not be empty."));
+        validation.registerValidator(newPersonSex, Validator.createEmptyValidator("The gender must not be empty."));
 
         newPersonCreatePerson.disableProperty().bind(validation.invalidProperty());
 
@@ -74,17 +73,17 @@ public class PersonCreateController {
         String email = newPersonEmail.getText();
         String firstName = newPersonFirstName.getText();
         String lastName = newPersonLastName.getText();
-        String password = newPersonPwd.getText();
-        String gender = newPersonGender.getText();
-        Timestamp joined = new Timestamp(System.currentTimeMillis());
+        String password = newPersonPassword.getText();
+        String gender = newPersonSex.getText();
+        Timestamp registered = new Timestamp(System.currentTimeMillis());
 
         PersonCreateView personCreateView = new PersonCreateView();
-        personCreateView.setPwd(password.toCharArray());
+        personCreateView.setPassword(password.toCharArray());
         personCreateView.setEmail(email);
         personCreateView.setFirstName(firstName);
         personCreateView.setLastName(lastName);
-        personCreateView.setGender(gender.toCharArray());
-        personCreateView.setJoined(joined);
+        personCreateView.setSex(gender.toCharArray());
+        personCreateView.setRegistered(registered);
 
 
         personService.createPerson(personCreateView);

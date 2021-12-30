@@ -3,7 +3,6 @@ package org.but.feec.javafx.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.but.feec.javafx.api.PersonBasicView;
 import org.but.feec.javafx.api.PersonDetailView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +24,7 @@ public class PersonsDetailViewController {
     private TextField lastNameTextField;
 
     @FXML
-    private TextField genderTextField;
+    private TextField sexTextField;
 
     @FXML
     private TextField cityTextField;
@@ -34,7 +33,7 @@ public class PersonsDetailViewController {
     private TextField zipcodeTextField;
 
     @FXML
-    private TextField houseNumberTextField;
+    private TextField streetNumberTextField;
 
     @FXML
     private TextField streetTextField;
@@ -44,6 +43,9 @@ public class PersonsDetailViewController {
 
     @FXML
     private TextField addressTypeTextField;
+
+    @FXML
+    private TextField registeredTextField;
 
     // used to reference the stage and to get passed data through it
     public Stage stage;
@@ -58,9 +60,9 @@ public class PersonsDetailViewController {
         emailTextField.setEditable(false);
         firstNameTextField.setEditable(false);
         lastNameTextField.setEditable(false);
-        genderTextField.setEditable(false);
+        sexTextField.setEditable(false);
         cityTextField.setEditable(false);
-        houseNumberTextField.setEditable(false);
+        streetNumberTextField.setEditable(false);
         streetTextField.setEditable(false);
         zipcodeTextField.setEditable(false);
         countryTextField.setEditable(false);
@@ -77,13 +79,13 @@ public class PersonsDetailViewController {
             PersonDetailView personBasicView = (PersonDetailView) stage.getUserData();
             idTextField.setText(String.valueOf(personBasicView.getId()));
             emailTextField.setText(personBasicView.getEmail());
-            firstNameTextField.setText(personBasicView.getGivenName());
-            lastNameTextField.setText(personBasicView.getFamilyName());
-            genderTextField.setText(personBasicView.getGender());
+            firstNameTextField.setText(personBasicView.getFirstName());
+            lastNameTextField.setText(personBasicView.getLastName());
+            sexTextField.setText(personBasicView.getSex());
             cityTextField.setText(personBasicView.getCity());
             zipcodeTextField.setText(personBasicView.getZipcode());
-            houseNumberTextField.setText(personBasicView.gethouseNumber());
-            streetTextField.setText(personBasicView.getStreet());
+            streetNumberTextField.setText(personBasicView.gethouseNumber());
+            streetTextField.setText(personBasicView.getStreetName());
             countryTextField.setText(personBasicView.getCountry());
             addressTypeTextField.setText(personBasicView.getAddressType());
         }

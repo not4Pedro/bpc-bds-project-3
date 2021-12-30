@@ -44,9 +44,9 @@ public class SqlInjectionController {
     @FXML
     private TableColumn<PersonBasicView, String> personsEmail1;
     @FXML
-    private TableColumn<PersonBasicView, String> personsFamilyName1;
+    private TableColumn<PersonBasicView, String> personsLastName1;
     @FXML
-    private TableColumn<PersonBasicView, String> personsGivenName1;
+    private TableColumn<PersonBasicView, String> personsFirstName1;
     @FXML
     private TableColumn<PersonBasicView, Long> personsId2;
     @FXML
@@ -54,9 +54,9 @@ public class SqlInjectionController {
     @FXML
     private TableColumn<PersonBasicView, String> personsEmail2;
     @FXML
-    private TableColumn<PersonBasicView, String> personsFamilyName2;
+    private TableColumn<PersonBasicView, String> personsLastName2;
     @FXML
-    private TableColumn<PersonBasicView, String> personsGivenName2;
+    private TableColumn<PersonBasicView, String> personsFirstName2;
     @FXML
     private TableView<PersonBasicView> systemPersonsTableView1;
     @FXML
@@ -69,28 +69,17 @@ public class SqlInjectionController {
     private void initialize() {
         personRepository = new PersonRepository();
         personService = new PersonService(personRepository);
-//        GlyphsDude.setIcon(exitMenuItem, FontAwesomeIcon.CLOSE, "1em");
 
         personsId1.setCellValueFactory(new PropertyValueFactory<PersonBasicView, Long>("id"));
-//        personsCity.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("city"));
         personsEmail1.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("email"));
-        personsFamilyName1.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("familyName"));
-        personsGivenName1.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("givenName"));
+        personsLastName1.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("lastName"));
+        personsFirstName1.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("firstName"));
 
         personsId2.setCellValueFactory(new PropertyValueFactory<PersonBasicView, Long>("id"));
-//        personsCity.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("city"));
         personsEmail2.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("email"));
-        personsFamilyName2.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("familyName"));
-        personsGivenName2.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("givenName"));
+        personsLastName2.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("lastName"));
+        personsFirstName2.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("firstName"));
 
-
-//        ObservableList<PersonBasicView> observablePersonsList = initializePersonsData();
-//        systemPersonsTableView.setItems(observablePersonsList);
-//
-//        systemPersonsTableView.getSortOrder().add(personsId);
-//
-//        initializeTableViewSelection();
-//        loadIcons();
 
         logger.info("SqlInjectionController initialized");
     }

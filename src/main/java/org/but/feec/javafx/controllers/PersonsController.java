@@ -45,14 +45,12 @@ public class PersonsController {
     @FXML
     private TableColumn<PersonBasicView, String> personsEmail;
     @FXML
-    private TableColumn<PersonBasicView, String> personsFamilyName;
+    private TableColumn<PersonBasicView, String> personsLastName;
     @FXML
-    private TableColumn<PersonBasicView, String> personsGivenName;
+    private TableColumn<PersonBasicView, String> personsFirstName;
     @FXML
     private TableView<PersonBasicView> systemPersonsTableView;
 
-//    @FXML
-//    public MenuItem exitMenuItem;
 
     private PersonService personService;
     private PersonRepository personRepository;
@@ -64,13 +62,11 @@ public class PersonsController {
     private void initialize() {
         personRepository = new PersonRepository();
         personService = new PersonService(personRepository);
-//        GlyphsDude.setIcon(exitMenuItem, FontAwesomeIcon.CLOSE, "1em");
 
         personsId.setCellValueFactory(new PropertyValueFactory<PersonBasicView, Long>("id"));
-//        personsCity.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("city"));
         personsEmail.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("email"));
-        personsFamilyName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("familyName"));
-        personsGivenName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("givenName"));
+        personsLastName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("lastName"));
+        personsFirstName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("firstName"));
 
 
         ObservableList<PersonBasicView> observablePersonsList = initializePersonsData();

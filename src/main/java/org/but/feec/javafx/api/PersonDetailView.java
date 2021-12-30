@@ -8,11 +8,11 @@ import javafx.beans.property.StringProperty;
 public class PersonDetailView {
     private LongProperty id = new SimpleLongProperty();
     private StringProperty email = new SimpleStringProperty();
-    private StringProperty givenName = new SimpleStringProperty();
-    private StringProperty familyName = new SimpleStringProperty();
-    private StringProperty gender = new SimpleStringProperty();
-    private StringProperty street = new SimpleStringProperty();
-    private StringProperty houseNumber = new SimpleStringProperty();
+    private StringProperty firstName = new SimpleStringProperty();
+    private StringProperty lastName = new SimpleStringProperty();
+    private StringProperty sex = new SimpleStringProperty();
+    private StringProperty streetName = new SimpleStringProperty();
+    private StringProperty streetNumber = new SimpleStringProperty();
     private StringProperty zipcode = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
     private StringProperty country = new SimpleStringProperty();
@@ -35,20 +35,20 @@ public class PersonDetailView {
         this.emailProperty().setValue(email);
     }
 
-    public String getGivenName() {
-        return givenNameProperty().get();
+    public String getFirstName() {
+        return firstNameProperty().get();
     }
 
-    public void setGivenName(String givenName) {
-        this.givenNameProperty().setValue(givenName);
+    public void setFirstName(String firstName) {
+        this.firstNameProperty().setValue(firstName);
     }
 
-    public String getFamilyName() {
-        return familyNameProperty().get();
+    public String getLastName() {
+        return lastNameProperty().get();
     }
 
-    public void setFamilyName(String familyName) {
-        this.familyNameProperty().setValue(familyName);
+    public void setLastName(String lastName) {
+        this.lastNameProperty().setValue(lastName);
     }
 
     public String getCity() {
@@ -60,24 +60,24 @@ public class PersonDetailView {
     }
 
     public String gethouseNumber() {
-        return houseNumberProperty().get();
+        return streetNumberProperty().get();
     }
 
     public void sethouseNumber(String houseNumber) {
-        this.houseNumberProperty().setValue(houseNumber);
+        this.streetNumberProperty().setValue(houseNumber);
     }
 
-    public String getStreet() {
-        return streetProperty().get();
+    public String getStreetName() {
+        return streetNameProperty().get();
     }
 
-    public void setStreet(String street) {
-        this.streetProperty().setValue(street);
+    public void setStreetName(String streetName) {
+        this.streetNameProperty().setValue(streetName);
     }
 
-    public String getGender() { return genderProperty().get(); }
+    public String getSex() { return sexProperty().get(); }
 
-    public void setGender(String gender){ this.genderProperty().setValue(gender); }
+    public void setSex(String sex){ this.sexProperty().setValue(sex); }
 
     public String getZipcode() { return zipcodeProperty().get(); }
 
@@ -99,26 +99,26 @@ public class PersonDetailView {
         return email;
     }
 
-    public StringProperty givenNameProperty() {
-        return givenName;
+    public StringProperty firstNameProperty() {
+        return firstName;
     }
 
-    public StringProperty familyNameProperty() {
-        return familyName;
+    public StringProperty lastNameProperty() {
+        return lastName;
     }
 
-    public StringProperty genderProperty() { return gender; }
+    public StringProperty sexProperty() { return sex; }
 
     public StringProperty cityProperty() {
         return city;
     }
 
-    public StringProperty houseNumberProperty() {
-        return houseNumber;
+    public StringProperty streetNumberProperty() {
+        return streetNumber;
     }
 
-    public StringProperty streetProperty() {
-        return street;
+    public StringProperty streetNameProperty() {
+        return streetName;
     }
 
     public StringProperty zipcodeProperty() { return zipcode; }

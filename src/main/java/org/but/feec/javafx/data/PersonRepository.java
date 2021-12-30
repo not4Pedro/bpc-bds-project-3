@@ -1,13 +1,11 @@
 package org.but.feec.javafx.data;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import org.but.feec.javafx.api.*;
 import org.but.feec.javafx.config.DataSourceConfig;
 import org.but.feec.javafx.exceptions.DataAccessException;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class PersonRepository {
@@ -117,9 +115,9 @@ public class PersonRepository {
             preparedStatement.setString(1, personCreateView.getFirstName());
             preparedStatement.setString(2, personCreateView.getEmail());
             preparedStatement.setString(3, personCreateView.getLastName());
-            preparedStatement.setString(4, String.valueOf(personCreateView.getPwd()));
-            preparedStatement.setString(5, String.valueOf(personCreateView.getGender()));
-            preparedStatement.setTimestamp(6,personCreateView.getJoined());
+            preparedStatement.setString(4, String.valueOf(personCreateView.getPassword()));
+            preparedStatement.setString(5, String.valueOf(personCreateView.getSex()));
+            preparedStatement.setTimestamp(6,personCreateView.getRegistered());
 
             int affectedRows = preparedStatement.executeUpdate();
 
@@ -141,7 +139,7 @@ public class PersonRepository {
 
             preparedStatement.setString(1, personEditView.getFirstName());
 //            preparedStatement.setString(3, personEditView.getNickname());
-            preparedStatement.setString(2, personEditView.getSurname());
+            preparedStatement.setString(2, personEditView.getLastName());
             preparedStatement.setString(3, personEditView.getEmail());
             preparedStatement.setLong(4, personEditView.getId());
 
@@ -300,8 +298,8 @@ public class PersonRepository {
         PersonBasicView personBasicView = new PersonBasicView();
         personBasicView.setId(rs.getLong("customer_id"));
         personBasicView.setEmail(rs.getString("email"));
-        personBasicView.setGivenName(rs.getString("first_name"));
-        personBasicView.setFamilyName(rs.getString("last_name"));
+        personBasicView.setFirstName(rs.getString("first_name"));
+        personBasicView.setLastName(rs.getString("last_name"));
 //        personBasicView.setCity(rs.getString("city"));
         return personBasicView;
     }
@@ -310,11 +308,11 @@ public class PersonRepository {
         PersonDetailView personDetailView = new PersonDetailView();
         personDetailView.setId(rs.getLong("customer_id"));
         personDetailView.setEmail(rs.getString("email"));
-        personDetailView.setGivenName(rs.getString("first_name"));
-        personDetailView.setFamilyName(rs.getString("last_name"));
-        personDetailView.setGender(rs.getString("sex"));
+        personDetailView.setFirstName(rs.getString("first_name"));
+        personDetailView.setLastName(rs.getString("last_name"));
+        personDetailView.setSex(rs.getString("sex"));
         personDetailView.sethouseNumber(rs.getString("street_number"));
-        personDetailView.setStreet(rs.getString("street_name"));
+        personDetailView.setStreetName(rs.getString("street_name"));
         personDetailView.setCity(rs.getString("city"));
         personDetailView.setZipcode(rs.getString("zipcode"));
         personDetailView.setCountry(rs.getString("country"));

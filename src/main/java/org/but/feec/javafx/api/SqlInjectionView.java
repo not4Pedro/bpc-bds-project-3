@@ -8,8 +8,8 @@ import javafx.beans.property.StringProperty;
 public class SqlInjectionView {
     private LongProperty id = new SimpleLongProperty();
     private StringProperty email = new SimpleStringProperty();
-    private StringProperty givenName = new SimpleStringProperty();
-    private StringProperty familyName = new SimpleStringProperty();
+    private StringProperty firstName = new SimpleStringProperty();
+    private StringProperty lastName = new SimpleStringProperty();
 
 
     public Long getId() {
@@ -28,20 +28,20 @@ public class SqlInjectionView {
         this.emailProperty().setValue(email);
     }
 
-    public String getGivenName() {
-        return givenNameProperty().get();
+    public String getFirstName() {
+        return firstNameProperty().get();
     }
 
-    public void setGivenName(String givenName) {
-        this.givenNameProperty().setValue(givenName);
+    public void setFirstName(String firstName) {
+        this.firstNameProperty().setValue(firstName);
     }
 
-    public String getFamilyName() {
-        return familyNameProperty().get();
+    public String getLastName() {
+        return lastNameProperty().get();
     }
 
-    public void setFamilyName(String familyName) {
-        this.familyNameProperty().setValue(familyName);
+    public void setLastName(String lastName) {
+        this.lastNameProperty().setValue(lastName);
     }
 
 
@@ -53,11 +53,11 @@ public class SqlInjectionView {
         return email;
     }
 
-    public StringProperty givenNameProperty() {
-        return givenName;
+    public StringProperty firstNameProperty() {
+        return firstName;
     }
 
-    public StringProperty familyNameProperty() {
-        return familyName;
+    public StringProperty lastNameProperty() {
+        return lastName;
     }
 }
