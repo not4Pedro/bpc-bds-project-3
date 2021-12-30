@@ -180,12 +180,6 @@ public class PersonsController {
             stage.setTitle("BDS JavaFX Create Person");
             stage.setScene(scene);
 
-//            Stage stageOld = (Stage) signInButton.getScene().getWindow();
-//            stageOld.close();
-//
-//            stage.getIcons().add(new Image(App.class.getResourceAsStream("logos/vut.jpg")));
-//            authConfirmDialog();
-
             stage.show();
         } catch (IOException ex) {
             ExceptionHandler.handleException(ex);

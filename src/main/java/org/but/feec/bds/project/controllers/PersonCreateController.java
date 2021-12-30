@@ -36,9 +36,6 @@ public class PersonCreateController {
     @FXML
     private TextField newPersonLastName;
 
-//    @FXML
-//    private TextField newPersonNickname;
-
     @FXML
     private TextField newPersonPassword;
 
@@ -69,7 +66,6 @@ public class PersonCreateController {
 
     @FXML
     void handleCreateNewPerson(ActionEvent event) {
-        // can be written easier, its just for better explanation here on so many lines
         String email = newPersonEmail.getText();
         String firstName = newPersonFirstName.getText();
         String lastName = newPersonLastName.getText();

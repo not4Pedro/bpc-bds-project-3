@@ -90,14 +90,12 @@ public class PersonsEditController {
         String email = emailTextField.getText();
         String firstName = firstNameTextField.getText();
         String lastName = lastNameTextField.getText();
-//        String nickname = nicknameTextField.getText();
 
         PersonEditView personEditView = new PersonEditView();
         personEditView.setId(id);
         personEditView.setEmail(email);
         personEditView.setFirstName(firstName);
         personEditView.setLastName(lastName);
-//        personEditView.setNickname(nickname);
 
         personService.editPerson(personEditView);
 

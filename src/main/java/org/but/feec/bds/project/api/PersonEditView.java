@@ -31,14 +31,6 @@ public class PersonEditView {
         this.firstName = firstName;
     }
 
-//    public String getNickname() {
-//        return nickname;
-//    }
-//
-//    public void setNickname(String nickname) {
-//        this.nickname = nickname;
-//    }
-
     public String getLastName() {
         return lastName;
     }
@@ -52,7 +44,6 @@ public class PersonEditView {
         return "PersonEditView{" +
                 "email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
-//                ", nickname='" + nickname + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
     }

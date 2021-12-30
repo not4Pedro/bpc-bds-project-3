@@ -112,10 +112,10 @@ public class LoginController {
             if (authenticated) {
                 showPersonsView();
             } else {
-                showInvalidPaswordDialog();
+                showInvalidPasswordDialog();
             }
         } catch (ResourceNotFoundException | DataAccessException e) {
-            showInvalidPaswordDialog();
+            showInvalidPasswordDialog();
         }
     }
 
@@ -143,7 +143,7 @@ public class LoginController {
         }
     }
 
-    private void showInvalidPaswordDialog() {
+    private void showInvalidPasswordDialog() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Unauthenticated");
         alert.setHeaderText("The user is not authenticated");

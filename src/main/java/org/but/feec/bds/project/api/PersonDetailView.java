@@ -126,8 +126,4 @@ public class PersonDetailView {
     public StringProperty countryProperty() { return country; }
 
     public StringProperty addressTypeProperty() { return addressType; }
-
-
-
-
 }
