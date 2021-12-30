@@ -4,7 +4,6 @@ public class PersonAuthView {
     private String password;
     private String lastName;
 
-
     public String getLastName() {
         return lastName;
     }

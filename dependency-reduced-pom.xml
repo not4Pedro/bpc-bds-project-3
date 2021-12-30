@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.but.feec</groupId>
-  <artifactId>bds-javafx-training</artifactId>
+  <artifactId>bpc-bds-project-3</artifactId>
   <version>1.0.0</version>
   <build>
     <plugins>
@@ -43,7 +43,6 @@
               <transformers>
                 <transformer>
                   <mainClass>org.but.feec.bds.project.Main</mainClass>
-
                 </transformer>
               </transformers>
             </configuration>
@@ -55,7 +54,7 @@
   <properties>
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <javafx.version>16</javafx.version>
+    <javafx.version>17.0.0.1</javafx.version>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 </project>
