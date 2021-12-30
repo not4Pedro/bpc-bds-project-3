@@ -8,9 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- * @author Pavel Šeda
- */
+
 public class App extends Application {
 
     private FXMLLoader loader;
@@ -26,7 +24,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         try {
 
-            loader = new FXMLLoader(getClass().getResource("fxml/Persons.fxml")); //App.fxml, fxml/Persons.fxml
+            loader = new FXMLLoader(getClass().getResource("App.fxml"));
             mainStage = loader.load();
 
             primaryStage.setTitle("BDS JavaFX Demo");
