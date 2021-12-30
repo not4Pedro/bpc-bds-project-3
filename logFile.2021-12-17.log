@@ -4,8 +4,8 @@ com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initial
 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
 	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at org.but.feec.javafx.config.DataSourceConfig.<clinit>(DataSourceConfig.java:33)
-	at org.but.feec.javafx.App.start(App.java:31)
+	at DataSourceConfig.<clinit>(DataSourceConfig.java:33)
+	at App.start(App.java:31)
 	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:846)
 	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:474)
 	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:447)
@@ -35,9 +35,9 @@ com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initial
 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
 	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at org.but.feec.javafx.config.DataSourceConfig.<clinit>(DataSourceConfig.java:33)
-	at org.but.feec.javafx.data.PersonRepository.findPersonByEmail(PersonRepository.java:14)
-	at org.but.feec.javafx.App.start(App.java:34)
+	at DataSourceConfig.<clinit>(DataSourceConfig.java:33)
+	at PersonRepository.findPersonByEmail(PersonRepository.java:14)
+	at App.start(App.java:34)
 	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:846)
 	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:474)
 	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:447)
@@ -67,9 +67,9 @@ com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initial
 	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
 	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
 	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
-	at org.but.feec.javafx.config.DataSourceConfig.<clinit>(DataSourceConfig.java:33)
-	at org.but.feec.javafx.data.PersonRepository.findPersonByEmail(PersonRepository.java:14)
-	at org.but.feec.javafx.App.start(App.java:34)
+	at DataSourceConfig.<clinit>(DataSourceConfig.java:33)
+	at PersonRepository.findPersonByEmail(PersonRepository.java:14)
+	at App.start(App.java:34)
 	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:846)
 	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:474)
 	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:447)
@@ -103,7 +103,7 @@ javafx.fxml.LoadException:
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
 	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517)
-	at org.but.feec.javafx.App.start(App.java:35)
+	at App.start(App.java:35)
 	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:846)
 	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:474)
 	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:447)
@@ -127,11 +127,11 @@ Caused by: java.lang.reflect.InvocationTargetException: null
 	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673)
 	... 12 common frames omitted
-Caused by: org.but.feec.javafx.exceptions.DataAccessException: Persons basic view could not be loaded.
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:72)
-	at org.but.feec.javafx.services.PersonService.getPersonsBasicView(PersonService.java:28)
-	at org.but.feec.javafx.controllers.PersonsController.initializePersonsData(PersonsController.java:143)
-	at org.but.feec.javafx.controllers.PersonsController.initialize(PersonsController.java:71)
+Caused by: DataAccessException: Persons basic view could not be loaded.
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:72)
+	at PersonService.getPersonsBasicView(PersonService.java:28)
+	at PersonsController.initializePersonsData(PersonsController.java:143)
+	at PersonsController.initialize(PersonsController.java:71)
 	... 24 common frames omitted
 Caused by: org.postgresql.util.PSQLException: ERROR: relation "bds.person" does not exist
   Position: 67
@@ -144,7 +144,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "bds.person" does 
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:114)
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:65)
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:65)
 	... 27 common frames omitted
 734  [JavaFX Application Thread] INFO  o.b.f.j.controllers.LoginController - LoginController initialized
 735  [JavaFX Application Thread] INFO  o.b.f.j.controllers.LoginController - LoginController initialized
@@ -158,9 +158,9 @@ javafx.fxml.LoadException:
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
 	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517)
-	at org.but.feec.javafx.controllers.LoginController.showPersonsView(LoginController.java:125)
-	at org.but.feec.javafx.controllers.LoginController.handleSignIn(LoginController.java:108)
-	at org.but.feec.javafx.controllers.LoginController.lambda$initialize$0(LoginController.java:64)
+	at LoginController.showPersonsView(LoginController.java:125)
+	at LoginController.handleSignIn(LoginController.java:108)
+	at LoginController.lambda$initialize$0(LoginController.java:64)
 	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
 	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
 	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
@@ -202,11 +202,11 @@ Caused by: java.lang.reflect.InvocationTargetException: null
 	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673)
 	... 32 common frames omitted
-Caused by: org.but.feec.javafx.exceptions.DataAccessException: Persons basic view could not be loaded.
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:72)
-	at org.but.feec.javafx.services.PersonService.getPersonsBasicView(PersonService.java:28)
-	at org.but.feec.javafx.controllers.PersonsController.initializePersonsData(PersonsController.java:143)
-	at org.but.feec.javafx.controllers.PersonsController.initialize(PersonsController.java:71)
+Caused by: DataAccessException: Persons basic view could not be loaded.
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:72)
+	at PersonService.getPersonsBasicView(PersonService.java:28)
+	at PersonsController.initializePersonsData(PersonsController.java:143)
+	at PersonsController.initialize(PersonsController.java:71)
 	... 44 common frames omitted
 Caused by: org.postgresql.util.PSQLException: ERROR: relation "bds.person" does not exist
   Position: 67
@@ -219,7 +219,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "bds.person" does 
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:114)
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:65)
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:65)
 	... 47 common frames omitted
 741  [JavaFX Application Thread] INFO  o.b.f.j.controllers.LoginController - LoginController initialized
 6898 [JavaFX Application Thread] ERROR o.b.f.j.controllers.LoginController - 
@@ -232,9 +232,9 @@ javafx.fxml.LoadException:
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
 	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517)
-	at org.but.feec.javafx.controllers.LoginController.showPersonsView(LoginController.java:125)
-	at org.but.feec.javafx.controllers.LoginController.handleSignIn(LoginController.java:108)
-	at org.but.feec.javafx.controllers.LoginController.lambda$initialize$0(LoginController.java:64)
+	at LoginController.showPersonsView(LoginController.java:125)
+	at LoginController.handleSignIn(LoginController.java:108)
+	at LoginController.lambda$initialize$0(LoginController.java:64)
 	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
 	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
 	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
@@ -276,11 +276,11 @@ Caused by: java.lang.reflect.InvocationTargetException: null
 	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673)
 	... 32 common frames omitted
-Caused by: org.but.feec.javafx.exceptions.DataAccessException: Persons basic view could not be loaded.
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:73)
-	at org.but.feec.javafx.services.PersonService.getPersonsBasicView(PersonService.java:28)
-	at org.but.feec.javafx.controllers.PersonsController.initializePersonsData(PersonsController.java:143)
-	at org.but.feec.javafx.controllers.PersonsController.initialize(PersonsController.java:71)
+Caused by: DataAccessException: Persons basic view could not be loaded.
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:73)
+	at PersonService.getPersonsBasicView(PersonService.java:28)
+	at PersonsController.initializePersonsData(PersonsController.java:143)
+	at PersonsController.initialize(PersonsController.java:71)
 	... 44 common frames omitted
 Caused by: org.postgresql.util.PSQLException: ERROR: column reference "customer_id" is ambiguous
   Position: 8
@@ -293,7 +293,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column reference "customer_
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:114)
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:66)
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:66)
 	... 47 common frames omitted
 744  [JavaFX Application Thread] INFO  o.b.f.j.controllers.LoginController - LoginController initialized
 3656 [JavaFX Application Thread] ERROR o.b.f.j.controllers.LoginController - 
@@ -306,9 +306,9 @@ javafx.fxml.LoadException:
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2677)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2548)
 	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2517)
-	at org.but.feec.javafx.controllers.LoginController.showPersonsView(LoginController.java:125)
-	at org.but.feec.javafx.controllers.LoginController.handleSignIn(LoginController.java:108)
-	at org.but.feec.javafx.controllers.LoginController.lambda$initialize$0(LoginController.java:64)
+	at LoginController.showPersonsView(LoginController.java:125)
+	at LoginController.handleSignIn(LoginController.java:108)
+	at LoginController.lambda$initialize$0(LoginController.java:64)
 	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
 	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
 	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
@@ -350,18 +350,18 @@ Caused by: java.lang.reflect.InvocationTargetException: null
 	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83)
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2673)
 	... 32 common frames omitted
-Caused by: org.but.feec.javafx.exceptions.DataAccessException: Persons basic view could not be loaded.
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:73)
-	at org.but.feec.javafx.services.PersonService.getPersonsBasicView(PersonService.java:28)
-	at org.but.feec.javafx.controllers.PersonsController.initializePersonsData(PersonsController.java:143)
-	at org.but.feec.javafx.controllers.PersonsController.initialize(PersonsController.java:71)
+Caused by: DataAccessException: Persons basic view could not be loaded.
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:73)
+	at PersonService.getPersonsBasicView(PersonService.java:28)
+	at PersonsController.initializePersonsData(PersonsController.java:143)
+	at PersonsController.initialize(PersonsController.java:71)
 	... 44 common frames omitted
 Caused by: org.postgresql.util.PSQLException: The column name id_person was not found in this ResultSet.
 	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:2775)
 	at org.postgresql.jdbc.PgResultSet.getLong(PgResultSet.java:2658)
 	at com.zaxxer.hikari.pool.HikariProxyResultSet.getLong(HikariProxyResultSet.java)
-	at org.but.feec.javafx.data.PersonRepository.mapToPersonBasicView(PersonRepository.java:157)
-	at org.but.feec.javafx.data.PersonRepository.getPersonsBasicView(PersonRepository.java:69)
+	at PersonRepository.mapToPersonBasicView(PersonRepository.java:157)
+	at PersonRepository.getPersonsBasicView(PersonRepository.java:69)
 	... 47 common frames omitted
 745  [JavaFX Application Thread] INFO  o.b.f.j.controllers.LoginController - LoginController initialized
 3951 [JavaFX Application Thread] INFO  o.b.f.j.c.PersonsController - PersonsController initialized
