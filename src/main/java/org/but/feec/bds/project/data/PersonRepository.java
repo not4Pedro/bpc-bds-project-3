@@ -52,11 +52,6 @@ public class PersonRepository {
         return null;
     }
 
-    /**
-     * What will happen if we do not use LEFT JOIN? What persons will be returned? Ask your self and repeat JOIN from the presentations
-     *
-     * @return list of persons
-     */
     public List<PersonBasicView> getPersonsBasicView() {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
@@ -145,7 +140,6 @@ public class PersonRepository {
             preparedStatement.setLong(4, personEditView.getId());
 
             try {
-                // TODO set connection autocommit to false
                 /* HERE */
                 connection.setAutoCommit(false);
                 try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
@@ -160,16 +154,10 @@ public class PersonRepository {
                 if (affectedRows == 0) {
                     throw new DataAccessException("Creating person failed, no rows affected.");
                 }
-                // TODO commit the transaction (both queries were performed)
-                /* HERE */
                 connection.commit();
             } catch (SQLException e) {
-                // TODO rollback the transaction if something wrong occurs
-                /* HERE */
                 connection.rollback();
             } finally {
-                // TODO set connection autocommit back to true
-                /* HERE */
                 connection.setAutoCommit(true);
             }
         } catch (SQLException e) {
@@ -191,8 +179,6 @@ public class PersonRepository {
             preparedStatement.setLong(1, id);
 
             try {
-                // TODO set connection autocommit to false
-                /* HERE */
                 connection.setAutoCommit(false);
                 try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setLong(1, id);
@@ -209,16 +195,10 @@ public class PersonRepository {
                 if (affectedRows == 0) {
                     throw new DataAccessException("Deleting person failed, no rows affected.");
                 }
-                // TODO commit the transaction (both queries were performed)
-                /* HERE */
                 connection.commit();
             } catch (SQLException e) {
-                // TODO rollback the transaction if something wrong occurs
-                /* HERE */
                 connection.rollback();
             } finally {
-                // TODO set connection autocommit back to true
-                /* HERE */
                 connection.setAutoCommit(true);
             }
         } catch (SQLException e) {
@@ -281,11 +261,6 @@ public class PersonRepository {
         }
     }
 
-    /**
-     * <p>
-     * Note: In practice reflection or other mapping frameworks can be used (e.g., MapStruct)
-     * </p>
-     */
     private PersonAuthView mapToPersonAuth(ResultSet rs) throws SQLException {
         PersonAuthView person = new PersonAuthView();
         person.setLastName(rs.getString("last_name"));
