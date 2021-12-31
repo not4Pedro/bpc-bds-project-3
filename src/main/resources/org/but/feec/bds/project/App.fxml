@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox fx:id="fpga" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.bds.project.controllers.LoginController">
+<VBox fx:id="fpga" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.feec.bds.project.controllers.LoginController">
 	<children>
 		<HBox>
 			<VBox.margin>
@@ -23,7 +15,7 @@
       <Pane prefHeight="363.0" prefWidth="600.0">
          <children>
              <Label fx:id="vutLogo" layoutX="200.0" layoutY="95.0" prefHeight="17.0" prefWidth="62.0" />
-             <Label layoutX="75.0" layoutY="40.0" text="Welcome to BDS JavaFX Demo">
+             <Label layoutX="135.0" layoutY="39.0" text="Welcome to GUI project 3">
                <font>
                   <Font size="26.0" />
                </font>
@@ -40,10 +32,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="usernameLabel" text="User Name:" GridPane.columnIndex="1" />
+                  <Label fx:id="usernameLabel" text="Last Name" GridPane.columnIndex="1" />
                   <Label fx:id="passwordLabel" text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button id="signInButton" fx:id="signInButton" mnemonicParsing="false" onAction="#signInActionHandler" prefHeight="33.0" prefWidth="90.0" text="Sign in" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <TextField id="usernameTextField" fx:id="usernameTextField" promptText="type your username" GridPane.columnIndex="2" />
+                  <TextField id="usernameTextField" fx:id="usernameTextField" promptText="type your last name" GridPane.columnIndex="2" />
                   <PasswordField id="passwordTextField" fx:id="passwordTextField" promptText="type your password" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
