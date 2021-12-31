@@ -4,10 +4,12 @@ Implementation of database I created in previous projects. This project is based
 bpc-bds-project-3
 
 ## Description
-To build the aplication use \n
-    `mvn clean install' \n
-To run the aplication execute this command in folder "target/": \n
-    `java -jar bpc-bds-project-3-1.0.0.jar` \n
+To build the aplication use
+    `mvn clean install
+    `
+To run the aplication execute this command in folder "target/":
+    `java -jar bpc-bds-project-3-1.0.0.jar
+    `
 ### What this application provides
 * Authentication by lastname and password
 * Passwords are safely hashed 
